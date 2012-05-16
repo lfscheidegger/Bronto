@@ -1,0 +1,8 @@
+{
+  "linter": [
+    {
+      "pattern": ".*.py$",
+      "command": "pylint --include-ids=y --disable=R0921,W0223,W0311,C0103"
+    }
+  ]
+}
