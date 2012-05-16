@@ -26,7 +26,7 @@ class InverseMatcher:
     raises AssertionError if value and self.value match
     """
     if self.value == value:
-      msg = "expected " + self.value + " not to be " + value
+      msg = "expected " + str(self.value) + " not to be " + str(value)
       raise AssertionError(msg)
 
   def toEqual(self, value):
@@ -55,7 +55,7 @@ class Matcher:
     raises AssertionError if value and self.value don't match
     """
     if self.value != value:
-      msg = "expected " + self.value + " to be " + value
+      msg = "expected " + str(self.value) + " to be " + str(value)
       raise AssertionError(msg)
 
   def toEqual(self, value):
