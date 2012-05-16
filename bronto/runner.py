@@ -7,7 +7,7 @@ runner.py
 Main Bronto runner
 """
 
-import bronto.TestGroup
+import bronto.Suite
 from bronto.bash_support import print_colored, put_colored
 import pkgutil
 import inspect
@@ -33,7 +33,7 @@ def registerClass(klass):
   registerClass(klass: Class) 
     -> [{ contextStack: [Class], testMethod: Method }]
   
-  Given a TestGroup subclass, fetches all valid test methods
+  Given a Suite subclass, fetches all valid test methods
   and returns them in a list
   """
 
@@ -44,8 +44,8 @@ def registerClass(klass):
     """
     registerClassRec(klass: Class) -> None
     
-    recursively traverse the internal TestGroup subclasses
-    of the base TestGroup subclass being analyzed.
+    recursively traverse the internal Suite subclasses
+    of the base Suite subclass being analyzed.
     """
     contextStack.append(klass)
 
@@ -62,7 +62,7 @@ def registerClass(klass):
 
     classes = inspect.getmembers(klass, inspect.isclass)
     for _, classObj in classes:
-      if issubclass(classObj, bronto.TestGroup):
+      if issubclass(classObj, bronto.Suite):
         registerClassRec(classObj)
 
     # pop contexts back from the stack
@@ -92,7 +92,7 @@ def getTestCases(testSource):
     classes = inspect.getmembers(module, inspect.isclass)
     
     for _, classObj in classes:
-      if not issubclass(classObj, bronto.TestGroup):        
+      if not issubclass(classObj, bronto.Suite):        
         continue
       
       testCases += registerClass(classObj)
