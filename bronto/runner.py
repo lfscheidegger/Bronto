@@ -14,6 +14,15 @@ import inspect
 import os
 import time
 
+def reservedMethods():
+  """
+  reservedMethods() -> []
+
+  returns a const list of specially-named methods that aren't supposed
+  to be run by the test runner.
+  """
+  return ['beforeEach', 'afterEach']
+
 def emptyFunction(self):
   """
   emptyFunction() -> None
@@ -43,11 +52,13 @@ def registerClass(klass):
     # append test cases in current context
     testCases = inspect.getmembers(klass, inspect.ismethod)  
     for testCaseName, testCaseObj in testCases:
-      if testCaseName.startswith('test'):
-        result.append({
-          'contextStack': list(contextStack),
-          'testMethod': testCaseObj
-        })
+      if testCaseName in reservedMethods():
+        continue
+
+      result.append({
+        'contextStack': list(contextStack),
+        'testMethod': testCaseObj
+      })
 
     classes = inspect.getmembers(klass, inspect.isclass)
     for _, classObj in classes:
