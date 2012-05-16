@@ -1,7 +1,7 @@
 Bronto
 ======
 
-Jasmine-like tests in Python
+Jasmine-like tests for Python
 
 # Jasmine tests #
 
