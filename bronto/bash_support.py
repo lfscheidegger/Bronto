@@ -1,4 +1,4 @@
-# Raptor - smart hooks for git
+# Bronto - tests for Python that look like Jasmine
 # Copyright (C) 2012 Luiz Scheidegger
 
 """
