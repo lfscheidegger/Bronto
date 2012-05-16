@@ -1,7 +1,7 @@
 Bronto
 ======
 
-Jasmine-like tests for Python
+Jasmine-like tests for Python.
 
 # Jasmine tests #
 
@@ -9,7 +9,7 @@ As it happens, [Jasmine](https://github.com/pivotal/jasmine) is a
 Javascript library that offers BDD support for web applications. But
 more importantly, it has a very elegant, attractive syntax to define
 test cases and suites. Bronto, on the other hand, is a Python library
-that provides (in as much as possible) a test runner for Pyhton code
+that provides (in as much as possible) a test runner for Python code
 with similar syntax.
 
 # Getting Started #
